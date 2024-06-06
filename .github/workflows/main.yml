@@ -26,9 +26,10 @@ jobs:
           npm run docs:build
         env:
           CI: true
-      - name: show files
+      - name: show builded files
         run: |
-          ls
+          cd .vitepress/dist
+          ls -alh
       - name: Deploy
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
