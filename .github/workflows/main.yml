@@ -1,0 +1,27 @@
+# 名字随意
+name: deploy to my tencent
+# 触发机制, 可以定时, 或其他, 具体可自行百度, 示例为main分支push时触发
+on:
+  push:
+    branches:
+      - main
+# 要执行的计划
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: ls -a
+          host: ${{ secrets.HOST }}
+          username: root
+          port: 22
+          privateKey: ${{ secrets.PRIVATE_KEY}}
