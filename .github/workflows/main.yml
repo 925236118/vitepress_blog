@@ -7,21 +7,31 @@ on:
       - main
 # 要执行的计划
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      - name: ls -a via ssh
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: ls -a
-          host: ${{ secrets.HOST }}
-          username: root
-          port: 22
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+    steps: 
+      - name: checkout
+        uses: actions/checkout@master
+      - name: use Node 18
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 18
+      - name: npm install
+        run: |
+          npm install
+        env:
+         CI: true
+      - name: hexo build
+        run: |
+          npm run docs:build
+        env:
+          CI: true
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+          ARGS: "-avz --delete"
+          SOURCE: ".vuepress/dist/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.TARGET }}
