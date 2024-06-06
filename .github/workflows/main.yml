@@ -21,11 +21,14 @@ jobs:
           npm install
         env:
          CI: true
-      - name: hexo build
+      - name: vitepress build
         run: |
           npm run docs:build
         env:
           CI: true
+      - name: show files
+        run: |
+          ls .viperess/dist/
       - name: Deploy
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
