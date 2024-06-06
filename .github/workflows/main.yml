@@ -4,7 +4,7 @@ name: deploy to my tencent
 on:
   push:
     branches:
-      - main
+      - master
 # 要执行的计划
 jobs:
   build:
