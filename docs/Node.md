@@ -1,0 +1,6 @@
+- void _ready() virtual
+	- 当节点就绪时被调用
+	- 子节点全部ready后父节点才会触发ready
+	- 子节点中等待父节点的ready可以使用 `await owner.ready`
+- void _unhandled_input(event: InputEvent) virtual
+	- 获取到一个未被消耗的输入监听

@@ -1,0 +1,6 @@
+- bool is_zero_approx(x: float)
+	- 判断为0或者几乎为0
+- bool is_equal_approx(a: float, b: float)
+	- 判断两个数近似相等
+- float move_toward(from: float, to: float, delta: float)
+	- 将from向to移动,步长为delta,不会超过to

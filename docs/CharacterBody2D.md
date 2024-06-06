@@ -1,0 +1,8 @@
+- velocity : Vector2
+	- 当前的速度向量,单位为像素每秒
+- bool is_on_floor() const
+	- 如果最近一次调用`move_and_slide`时,该物体和地板发生了碰撞,返回`true`,否则返回`false`
+- bool is_on_wall() const
+	- 如果最近一次调用`move_and_slide`时,该物体和墙壁发生了碰撞,返回`true`,否则返回`false`
+- bool move_and_slide()
+	- 根据`velocity`移动物体
