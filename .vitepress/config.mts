@@ -16,7 +16,7 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Notes',
         items: [
           { text: '独立游戏开发总览', link: '/独立游戏开发总览' },
           { 
@@ -25,6 +25,12 @@ export default defineConfig({
             items: [
               { text: 'Godot有限状态机', link: '/Godot有限状态机' },
               { text: 'Godot着色器案例', link: '/Godot着色器案例' },
+              { 
+                text: 'Godot设计模式',  
+                items: [
+                  { text: '命令模式', link: '/Godot设计模式-命令模式' }
+                ]
+              },
             ]
           },
           { 

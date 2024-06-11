@@ -19,6 +19,10 @@
 - 着色器之书
   - https://thebookofshaders.com/
 - [【技术档案】你的第一个Godot着色器：Bling Bling描边！](https://www.bilibili.com/video/BV1fn4y1R7yg/)
+
+## Godot设计模式
+- 以下是对 https://gpp.tkchu.me/ 的笔记
+- [Godot设计模式-命令模式](/Godot设计模式-命令模式)
 ## 凌乱的笔记
 - [Tilemap for Godot](/Tilemap_for_godot)
 - [Godot有限状态机](/Godot有限状态机)
