@@ -89,3 +89,39 @@ server {
 - 静态服务器上传文件名中带有中文，导致请求失败
   - 解决办法：将文件名转换成utf-8编码
     - sudo convmv -f gbk -t utf-8 -r --notest /var/www/public
+
+## 使用SSL证书
+- 申请SSL证书
+- 将SSL证书中的.crt文件和.key文件上传到服务器。
+- 修改nginx配置
+```
+server {
+        listen 80 default_server;
+        root /var/www/html;
+        index index.html;
+        location / {
+			# 重定向到https
+			return 301 https://$host$request_uri;
+#           try_files $uri $uri/ =404;
+        }
+}
+
+server {
+        listen 443 ssl;
+		# 配置网站
+        root /var/www/html;
+        index index.html;
+
+        ssl_certificate path/to/file.crt;
+        ssl_certificate_key path/to/file.key;
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+        ssl_prefer_server_ciphers on;
+        client_max_body_size 200M;
+        location / {
+        #       proxy_pass http://...;
+        #       try_files $uri $uri/ =404;
+        }
+}
+```
