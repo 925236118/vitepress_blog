@@ -10,9 +10,6 @@ hero:
     - theme: brand
       text: 独立游戏学习笔记
       link: /独立游戏开发总览
-    - theme: alt
-      text: 雷诺曼在线占卜程序
-      link: http://www.moshangzhu.com.cn/lenormand
 ---
 
 如果你需要联系我，请通过以下邮箱：moshangzhu@163.com

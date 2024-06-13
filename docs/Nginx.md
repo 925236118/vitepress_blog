@@ -29,6 +29,30 @@ service nginx stop # 停止服务
 ``` shell
 sudo vim /etc/nginx/sites-available/default
 ```
+## windows使用nginx
+- 安装
+打开[下载地址](http://nginx.org/en/download.html), 选择最新的稳定版本。下载后解压。
+- 检查是否安装成功
+``` shell
+nginx -v
+```
+- 安装后的常用目录（相对于解压目录）
+  - `./`：主程序
+  - `./conf`：存放配置文件
+  - `./html`：存放网站站点文件
+  - `./logs`：存放日志
+- 启动服务
+``` shell
+start nginx
+nginx -s reopen # 重启
+nginx -s stop # 停止服务
+nginx -s quit # 停止服务
+```
+- 修改配置文件
+使用编辑器打开`./conf/nginx.conf`
+
+- 报错
+	- 有时运行`nginx -s stop`或`nginx -s reopen`都会报错`[error] CreateFile() "path/logs/nginx.pid" fail`。 可以运行命令`nginx -c conf/nginx.conf`
 ## 配置项
 ```
 server {

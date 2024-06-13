@@ -53,6 +53,10 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/925236118' }
     ],
+    footer: {
+      // message: 'Released under the MIT License.',
+      copyright: '<a href="https://beian.miit.gov.cn/">黑ICP备17004898号-1</a>'
+    },
     lastUpdated: {
       text: 'Updated at',
       formatOptions: {
