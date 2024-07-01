@@ -14,6 +14,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '独立游戏开发', link: '/独立游戏开发总览' },
     ],
+    logo: '/M_black.png',
     sidebar: [
       {
         text: 'Notes',

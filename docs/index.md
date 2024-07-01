@@ -6,6 +6,9 @@ hero:
   name: "你好，我是陌上竹"
   text: "欢迎来到我的网站"
   tagline: 我是一名网站前端开发工程师，最近也在沉迷学习游戏开发。
+  image:
+    src: /M.png
+    alt: VitePress
   actions:
     - theme: brand
       text: 独立游戏学习笔记
